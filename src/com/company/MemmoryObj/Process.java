@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Process implements Runnable{
     private int PID;
-    private Address Address;
+    private ArrayList<Address> Address;
     private long allocatedSpace;
     private MemoryManager memoryManager;
     private int sleepTime;
@@ -20,6 +20,7 @@ public class Process implements Runnable{
         this.memoryManager = memoryManager;
         allocatedSpace = 0;
         this.sleepTime = sleepTime;
+        Address = new ArrayList<com.company.MemmoryObj.Address>();
     }
 
     @Override
@@ -28,7 +29,7 @@ public class Process implements Runnable{
         if(allocatedSpace == 0){
             try {
                 Thread.sleep(sleepTime * 1000);
-                Address = allocate(PID , rnd.size());
+                Address.add(allocate(PID , rnd.size()));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -37,9 +38,12 @@ public class Process implements Runnable{
             try {
                 Thread.sleep(sleepTime * 1000);
                 if(random % 2 == 0 ){
-                    Address = allocate(PID , rnd.size());
+
+                    Address.add(allocate(PID , rnd.size()));
                 }else {
-                    deallocate(PID , Address);
+                    Address add = Address.get(Address.size() - 1);
+                    deallocate(PID , add);
+                    Address.remove(Address.size() -1 );
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
