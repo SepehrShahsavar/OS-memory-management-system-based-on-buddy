@@ -5,6 +5,7 @@ import com.company.MemmoryObj.Address;
 import com.company.MemmoryObj.MemoryBlock;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -20,14 +21,15 @@ public class MemoryManager {
     private ArrayList<MemoryBlock> sizeSixBlocks = new ArrayList<MemoryBlock>(); // 1024
     private ArrayList<MemoryBlock> biggerBlocks = new ArrayList<MemoryBlock>(); // more than 1024
 
+    HashMap<Long , Long> addresses = new HashMap<Long, Long>();
+
     private final ReadWriteLock readWriteLock
             = new ReentrantReadWriteLock();
     private final Lock writeLock
             = readWriteLock.writeLock();
     private final Lock readLock = readWriteLock.readLock();
 
-    public MemoryManager(ReentrantLock lock) {
-        this.lock = lock;
+    public MemoryManager() {
         biggerBlocks.add(new MemoryBlock(0 , memorySize -1));
     }
 
