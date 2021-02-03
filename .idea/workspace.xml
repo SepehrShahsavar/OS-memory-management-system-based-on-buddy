@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36af2a8d-9697-4bcb-872d-ab9f9e41499c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/MemmoryObj/MemoryBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MemmoryObj/MemoryBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MemmoryObj/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MemmoryObj/Process.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/OS/MemoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/OS/MemoryManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612291249355</updated>
       <workItem from="1612291252257" duration="7510000" />
-      <workItem from="1612331488042" duration="434000" />
+      <workItem from="1612331488042" duration="3144000" />
     </task>
     <servers />
   </component>

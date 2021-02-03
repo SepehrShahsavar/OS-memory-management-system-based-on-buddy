@@ -5,9 +5,10 @@ import com.company.MemmoryObj.Address;
 import com.company.MemmoryObj.MemoryBlock;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class MemoryManager {
-    private int MemorySize = Constants.initialStateMemorySize;
+    private int memorySize = Constants.initialStateMemorySize;
     private ArrayList<MemoryBlock>sizeOneBlocks = new ArrayList<MemoryBlock>(); // 32
     private ArrayList<MemoryBlock> sizeTwoBlocks = new ArrayList<MemoryBlock>(); // 64
     private ArrayList<MemoryBlock> sizeThreeBlocks = new ArrayList<MemoryBlock>(); // 128
@@ -16,9 +17,20 @@ public class MemoryManager {
     private ArrayList<MemoryBlock> sizeSixBlocks = new ArrayList<MemoryBlock>(); // 1024
     private ArrayList<MemoryBlock> biggerBlocks = new ArrayList<MemoryBlock>(); // more than 1024
 
+    ReentrantLock lock ;
+
+    public MemoryManager(ReentrantLock lock) {
+        this.lock = lock;
+        biggerBlocks.add(new MemoryBlock(0 , memorySize -1));
+    }
 
     public Address allocate(int pid , int size){
+        boolean ans = lock.tryLock();
+        if(ans){
 
+        }
+        lock.unlock();
+        return null ;
     }
 
     public void deallocate(int pid , Address address){
